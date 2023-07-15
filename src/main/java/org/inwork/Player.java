@@ -1,5 +1,7 @@
 package org.inwork;
 
+import org.inwork.items.Armor;
+import org.inwork.items.Weapon;
 import org.inwork.units.Hero;
 import org.inwork.units.Unit;
 
@@ -13,7 +15,8 @@ public class Player {
 
     public Player(Game game) {
         this.game = game;
-        this.hero = new Hero(game, "Spartacus", 10, 2, 2);;
+        this.hero = new Hero(game, "Spartacus", 10, new Weapon("Mini-gun",
+                1, 4), new Armor("quilted vest", 2));;
     }
 
     public void makeTurn() {

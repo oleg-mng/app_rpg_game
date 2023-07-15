@@ -1,5 +1,7 @@
 package org.inwork;
 
+import org.inwork.items.Armor;
+import org.inwork.items.Weapon;
 import org.inwork.units.Unit;
 
 public class AiPlayer {
@@ -12,7 +14,8 @@ public class AiPlayer {
 
     public AiPlayer(Game game) {
         this.game = game;
-        this.monster = new Unit(game, "Scalp", 6, 4, 0);;
+        this.monster = new Unit(game, "Scalp", 6, new Weapon("Mace", 1,
+                5), new Armor("Rags", 1));;
     }
 
     public void makeTurn() {

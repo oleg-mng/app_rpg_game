@@ -1,6 +1,8 @@
 package org.inwork.units;
 
 import org.inwork.Game;
+import org.inwork.items.Armor;
+import org.inwork.items.Weapon;
 
 public class Unit {
     Game game;
@@ -8,25 +10,25 @@ public class Unit {
     String name;
     int hp;
     int hpMax;
-    int attack;
-    int defence;
+    Weapon weapon;
+    Armor armor;
 
     public boolean isAlive() {
         return hp > 0;
     }
 
-    public Unit(Game game, String name, int hpMax, int attack, int defence) {
+    public Unit(Game game, String name, int hpMax, Weapon weapon, Armor armor) {
         this.game = game;
         this.level = 1;
         this.name = name;
         this.hpMax = hpMax;
         this.hp = hpMax;
-        this.attack = attack;
-        this.defence = defence;
+        this.weapon = weapon;
+        this.armor = armor;
     }
 
     public void attack(Unit target) {
-        int actualDamage = target.takeDamage(attack);
+        int actualDamage = target.takeDamage(weapon.getDamage());
         System.out.printf("%s персонаж нанес урон %s %d единиц урона\n", name, target.name, actualDamage);
         target.info();
     }
@@ -42,7 +44,8 @@ public class Unit {
     }
 
     public void info() {
-        System.out.printf("Инфо: Имя:%s(%d) ХП: %d/%d атака: %d защита: %d\n", name, level, hp, hpMax, attack, defence);
+        System.out.printf("Инфо: Имя:%s(%d) ХП: %d/%d Оружие: %s Броня: %s\n", name, level, hp, hpMax,
+                weapon.info(), armor.info());
     }
 
     public void startTurn() {
@@ -54,7 +57,7 @@ public class Unit {
     }
 
     public int takeDamage(int amount) {
-        amount -= defence;
+        amount -= armor.getDefense();
         if (amount < 0) amount = 0;
         hp -= amount;
         return amount;

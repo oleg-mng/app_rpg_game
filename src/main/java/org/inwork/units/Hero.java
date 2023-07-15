@@ -1,13 +1,15 @@
 package org.inwork.units;
 
 import org.inwork.Game;
+import org.inwork.items.Armor;
+import org.inwork.items.Weapon;
 
 public class Hero extends Unit {
     private int exp = 0;
     private int[] exTo = {0, 1000, 2000, 4000, 8000, 12000, 15000, 1000000};
 
-    public Hero(Game game, String name, int hpMax, int attack, int defence) {
-        super(game, name, hpMax, attack, defence);
+    public Hero(Game game, String name, int hpMax, Weapon weapon, Armor armor) {
+        super(game, name, hpMax, weapon, armor);
     }
 
     public void levelExp(int amount) {

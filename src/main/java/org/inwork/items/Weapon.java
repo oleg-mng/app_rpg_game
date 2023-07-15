@@ -2,11 +2,32 @@ package org.inwork.items;
 
 public class Weapon {
     private String title;
-    private int minAttack;
-    private int maxAttack;
+    private int minDamage;
+    private int maxDamage;
 
-    public int getDamage(){
-        return minAttack + (int) (Math.random() * (maxAttack - minAttack + 1));
+    public Weapon(String title) {
+        this.title = title;
     }
 
+    public Weapon(String title, int minDamage, int maxDamage) {
+        this.title = title;
+        this.minDamage = minDamage;
+        this.maxDamage = maxDamage;
+    }
+
+    public int getDamage(){
+        return minDamage + (int) (Math.random() * (maxDamage - minDamage + 1));
+    }
+
+
+    public int getMinDamage() {
+        return minDamage;
+    }
+
+    public int getMaxDamage() {
+        return maxDamage;
+    }
+    public String info() {
+        return String.format("%s [%d-%d]", title, minDamage, maxDamage);
+    }
 }
