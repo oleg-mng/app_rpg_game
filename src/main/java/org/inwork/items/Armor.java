@@ -1,6 +1,6 @@
 package org.inwork.items;
 
-public class Armor {
+public class Armor implements Item{
     private String title;
     private int defense;
 

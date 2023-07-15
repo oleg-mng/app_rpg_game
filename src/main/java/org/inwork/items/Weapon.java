@@ -1,11 +1,11 @@
 package org.inwork.items;
 
-public class Weapon {
+public class Weapon implements Item{
     private String title;
     private int minDamage;
     private int maxDamage;
 
-    public Weapon(String title) {
+    public Weapon(String title){
         this.title = title;
     }
 

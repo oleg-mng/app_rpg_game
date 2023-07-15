@@ -3,6 +3,7 @@ package org.inwork.units;
 import org.inwork.Game;
 import org.inwork.items.Armor;
 import org.inwork.items.Weapon;
+import org.inwork.utils.Reward;
 
 public class Hero extends Unit {
     private int exp = 0;
@@ -26,5 +27,13 @@ public class Hero extends Unit {
         System.out.printf("Персонаж %s повысил свой уровень до %d", name, level);
         hpMax = level * 2 - 1;
         hp = hpMax;
+    }
+
+    @Override
+    public void attack(Unit target) {
+        super.attack(target);
+        if (!isAlive()){
+            Reward reward = ((Monster)target).generateReward();
+        }
     }
 }
