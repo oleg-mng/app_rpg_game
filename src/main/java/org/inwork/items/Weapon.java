@@ -15,6 +15,7 @@ public class Weapon implements Item{
         this.maxDamage = maxDamage;
     }
 
+
     public int getDamage(){
         return minDamage + (int) (Math.random() * (maxDamage - minDamage + 1));
     }
@@ -29,5 +30,10 @@ public class Weapon implements Item{
     }
     public String info() {
         return String.format("%s [%d-%d]", title, minDamage, maxDamage);
+    }
+
+    @Override
+    public String getTitle() {
+        return title;
     }
 }

@@ -3,15 +3,29 @@ package org.inwork.units;
 import org.inwork.Game;
 import org.inwork.items.Armor;
 import org.inwork.items.Weapon;
+import org.inwork.utils.Inventory;
 
 public class Unit {
     Game game;
+
+
     int level;
     String name;
     int hp;
     int hpMax;
     Weapon weapon;
     Armor armor;
+    public int getLevel() {
+        return level;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHpMax() {
+        return hpMax;
+    }
 
     public boolean isAlive() {
         return hp > 0;

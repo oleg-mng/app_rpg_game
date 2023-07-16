@@ -29,8 +29,11 @@ public class Game {
 
     public void start() {
         System.out.println("Игра началась");
+        player.getHero().info();
+        aiPlayer.getMonster().info();
         while (true) {
             player.makeTurn();
+            aiPlayer.checkTeam(player.getHero().getLevel());
             if(isGameAnd()) break;
 
             aiPlayer.makeTurn();

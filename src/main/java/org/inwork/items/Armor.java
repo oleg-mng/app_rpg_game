@@ -16,4 +16,9 @@ public class Armor implements Item{
     public String info() {
         return String.format("%s %d", title, defense);
     }
+
+    @Override
+    public String getTitle() {
+        return title;
+    }
 }
